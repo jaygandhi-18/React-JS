@@ -38,13 +38,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <NavBar
-          title="News Coos"
-          mode={this.state.mode}
-          togglemode={this.toggleStyle}
-          modeName={this.state.btnText}
-        />
-        <News colour={this.state.colour} pageSize={10}/>
+        <NavBar title="News Coos" mode={this.state.mode} togglemode={this.toggleStyle} modeName={this.state.btnText} />
+        <News colour={this.state.colour} pageSize={10} search="india" apiKey="d304d96902da4e289ff4d456f3f1567c" />
       </div>
     )
   }

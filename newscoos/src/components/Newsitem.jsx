@@ -6,11 +6,10 @@ export default class Newsitem extends Component {
 
     return (
       <div className='py-3 px-2'>
-        <div className="card" style={{width: "18rem", backgroundColor: `${colour}` }}>
+        <div className="card" style={{ backgroundColor: `${colour}` }}>
           <img src={!imageUrl?"https://t3.ftcdn.net/jpg/05/04/28/96/360_F_504289605_zehJiK0tCuZLP2MdfFBpcJdOVxKLnXg1.jpg":imageUrl} 
           style={{
-            height:"160px",
-            width:"286px",
+            height:"200px",
             objectFit: 'cover'
           }}
           className="card-img-top" alt="..."/>
