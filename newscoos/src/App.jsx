@@ -44,7 +44,7 @@ export default class App extends Component {
           togglemode={this.toggleStyle}
           modeName={this.state.btnText}
         />
-        <News colour={this.state.colour}/>
+        <News colour={this.state.colour} pageSize={10}/>
       </div>
     )
   }

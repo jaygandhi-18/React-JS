@@ -50,20 +50,7 @@ export default class NavBar extends Component {
                 </li>
               </ul>
               <button type="button" onClick={togglemode} className={`btn btn-${mode === "light" ? "dark" : "light"}`}>{modeName}</button>
-              {/* <div className={`form-check form-switch text-${mode === "light" ? "dark" : "light"}`}>
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  onClick={togglemode}
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  {modeName}
-                </label>
-              </div> */}
+              
             </div>
           </div>
         </nav>
