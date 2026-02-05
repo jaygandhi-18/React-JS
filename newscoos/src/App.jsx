@@ -1,61 +1,80 @@
-import React, { Component } from 'react';
+import React,{useState} from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      mode: "light",
-      colour: "white", 
-      btnText: "Dark Mode",
-      searchQuery: "",
-    };
-  }
+function App() {
+
+  const [progress, setProgress] = useState(0)
   
-  handleSearch = (query) => {
-    this.setState({ searchQuery: query });
-  };
+  const pageSize = 9;
+  const apiKey = "ca9024dd506341cf991327bb4451cd1f"
 
-  toggleStyle = () => {
-    if (this.state.mode === "light") {
-      document.body.style.backgroundColor = "#161616";
-      document.body.style.color = "white";
-      this.setState({
-        mode: "dark",
-        colour: "black",
-        btnText: "Light Mode",
-      });
-    } else {
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-      this.setState({
-        mode: "light",
-        colour: "white",
-        btnText: "Dark Mode",
-      });
-    }
-  };
+  return (
+    <Router>
+      <NavBar />
+      <LoadingBar
+        height={3}
+        color='#f11946'
+        progress={progress}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="general" pageSize={pageSize} country="us" category="general" />
+          }
+        />
 
-  render() {
-    return (
-      <div>
-        <NavBar 
-          onSearch={this.handleSearch} 
-          title="News Coos" 
-          mode={this.state.mode} 
-          togglemode={this.toggleStyle} 
-          modeName={this.state.btnText} 
+        <Route
+          path="/business"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="business" pageSize={pageSize} country="us" category="business" />
+          }
         />
-        <News 
-          query={this.state.searchQuery}  
-          colour={this.state.colour} 
-          pageSize={10} 
-          mode={this.state.mode}  
-          apiKey="d304d96902da4e289ff4d456f3f1567c" 
+
+        <Route
+          path="/entertainment"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={pageSize} country="us" category="entertainment" />
+          }
         />
-      </div>
-    );
-  }
+
+        <Route
+          path="/health"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="health" pageSize={pageSize} country="us" category="health" />
+          }
+        />
+
+        <Route
+          path="/science"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="science" pageSize={pageSize} country="us" category="science" />
+          }
+        />
+
+        <Route
+          path="/sports"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={pageSize} country="us" category="sports" />
+          }
+        />
+
+        <Route
+          path="/technology"
+          element={
+            <News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={pageSize} country="us" category="technology" />
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;

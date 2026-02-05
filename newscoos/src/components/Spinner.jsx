@@ -4,7 +4,7 @@ import Loading from './loading.gif'
 export default function Spinner() {
   return (
     <div className='text-center'>
-      <img src={Loading} alt="loading" />
+      <img className='my-3' src={Loading} alt="loading" />
     </div>
   )
 }
